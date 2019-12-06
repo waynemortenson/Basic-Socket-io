@@ -1,0 +1,27 @@
+{
+  "name": "basic-socket-io",
+  "version": "1.0.0",
+  "description": "basic socket io functions",
+  "main": "chat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node chat.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waynemortenson/Basic-Socket-io.git"
+  },
+  "author": "wayne mortenson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waynemortenson/Basic-Socket-io/issues"
+  },
+  "homepage": "https://github.com/waynemortenson/Basic-Socket-io#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
