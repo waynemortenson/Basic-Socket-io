@@ -1,9 +1,31 @@
+
+<form id="message-form">
+    <input id="user-message" type="text" placeholder="Enter message">
+    <button type='submit'>Send</button>
+</form>
+<ul id="messages">
+    <!-- js will fill this -->
+</ul>
+
+
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
     const socket = io("http://localhost:9000");
-    socket.on('messageFromServer', (dataFromServer)=>{
-        console.log(dataFromServer);
-        socket.emit('dataToServer', {data: 'Data from the client!'});
+    // socket.on('messageFromServer', (dataFromServer)=>{
+    // socket.emit('dataFromClient', {data: 'Data from the client!'});
+    // });
+</script>
+
+<!-- Get the message from user -->
+
+<script>
+    document.querySelector('#message-form').addEventListener('submit', event=>{
+        event.preventDefault();
+        const userMessage = document.querySelector('#user-message').value
+        socket.emit('newMessageToServer', {text: userMessage});
     });
+    socket.on('messageToClients', (msg) =>{
+        document.querySelector('#messages').innerHTML += `<li>${msg.text}</li>`
+        });
 </script>
